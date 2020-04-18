@@ -14,9 +14,10 @@ const App = () => {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    window.SC.get("/tracks", { q: song }).then((songsResponse) =>
-      setResults(songsResponse)
-    );
+    song &&
+      window.SC.get("/tracks", { q: song }).then((songsResponse) =>
+        setResults(songsResponse)
+      );
   }, [song]);
 
   return (
