@@ -1,0 +1,61 @@
+export interface Track {
+  id: number;
+  kind: string;
+  created_at: string;
+  last_modified: string;
+  permalink: string;
+  permalink_url: string;
+  title: string;
+  duration: number;
+  sharing: string;
+  waveform_url: string;
+  stream_url: string;
+  uri: string;
+  user_id: number;
+  artwork_url: string;
+  comment_count: number;
+  commentable: boolean;
+  description: string;
+  download_count: number;
+  downloadable: boolean;
+  embeddable_by: string;
+  favoritings_count: number;
+  genre: string;
+  isrc: null;
+  label_id: null;
+  label_name: null;
+  license: string;
+  original_content_size: number;
+  original_format: string;
+  playback_count: number;
+  purchase_title: null;
+  purchase_url: null | string;
+  release: string;
+  release_day: null;
+  release_month: null;
+  release_year: null;
+  reposts_count: number;
+  state: string;
+  streamable: boolean;
+  tag_list: string;
+  track_type: null;
+  user: User;
+  likes_count: number;
+  bpm: null;
+  key_signature: string;
+  user_favorite: boolean;
+  user_playback_count: null;
+  video_url: null;
+  download_url: null;
+}
+
+export interface User {
+  avatar_url: string;
+  id: number;
+  kind: string;
+  permalink_url: string;
+  uri: string;
+  username: string;
+  permalink: string;
+  last_modified: string;
+}
