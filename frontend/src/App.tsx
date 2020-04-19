@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useReducer } from "react";
 import { Track } from "./typings/App";
+import Logo from "./components/Logo";
+import SearchBar from "./components/SearchBar";
+import SearchResults from "./components/SearchResults";
+import actions from "./actions";
 
 import "./App.css";
 
@@ -8,12 +12,6 @@ interface PlayerState {
   track: Track | undefined;
 }
 const playerState: PlayerState = { play: false, track: undefined };
-
-const actions = {
-  PLAY: "PLAY",
-  PAUSE: "PAUSE",
-  STOP: "STOP",
-};
 
 function playerReducer(
   state: any,
@@ -29,13 +27,6 @@ function playerReducer(
   }
 }
 
-function millisToMinutesAndSeconds(millis: number) {
-  const minutes = Math.floor(millis / 60000);
-  const seconds = ((millis % 60000) / 1000).toFixed(0);
-
-  return minutes + ":" + (Number(seconds) < 10 ? "0" + seconds : seconds);
-}
-
 const App = () => {
   const [query, setQuery] = useState<string | undefined>();
   const [tracks, setTracks] = useState<Array<Track> | null>(null);
@@ -47,48 +38,14 @@ const App = () => {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="column">
-          <div className="Header">
-            <h1>The App</h1>
-            <h4>
-              built with{" "}
-              <span role="img" aria-label="love" style={{ color: "red" }}>
-                ♥️
-              </span>
-            </h4>
-          </div>
-        </div>
-      </div>
+      <Logo />
       <div className="row">
         <div className="column column-50">
-          <form>
-            <input
-              type="text"
-              name="song"
-              onChange={(e) => e.target.value && setQuery(e.target.value)}
-              onFocusCapture={console.log}
-            />
-          </form>
-          {query && <h3>Searching for - {query}</h3>}
-          {tracks && (
-            <ul>
-              {tracks.map((t, idx) => (
-                <li key={t.id} tabIndex={idx}>
-                  {t.title} - {t.user.username} -{" "}
-                  {millisToMinutesAndSeconds(t.duration)}
-                  <button
-                    className="button button-outline"
-                    onClick={() => {
-                      dispatch({ type: actions.PLAY, track: t });
-                    }}
-                  >
-                    play
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
+          <SearchBar setQuery={setQuery} />
+          <SearchResults
+            playSong={(track: Track) => dispatch({ type: actions.PLAY, track })}
+            tracks={tracks}
+          />
         </div>
         <div className="column column-50">
           {state.play && state.track && (
