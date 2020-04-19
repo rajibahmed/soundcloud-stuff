@@ -1,11 +1,18 @@
 import React from "react";
 import SearchItem from "./SearchItem";
+import { Track } from "../typings/App";
 
 const EmptyTracks = () => {
   return <h4>No tracks found</h4>;
 };
 
-export default ({ tracks, playSong }: any) => {
+export default ({
+  tracks,
+  playSong,
+}: {
+  tracks: Track[] | null;
+  playSong: Function;
+}) => {
   return tracks ? (
     <ul className="SearchResults">
       {tracks.map((track: any, idx: number) => (
