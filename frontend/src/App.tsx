@@ -37,17 +37,17 @@ const App = () => {
   }, [query]);
 
   return (
-    <div className="container">
+    <span className="container">
       <Logo />
-      <div className="row">
-        <div className="column column-50">
+      <span className="row">
+        <span className="column column-50">
           <SearchBar setQuery={setQuery} />
           <SearchResults
             playSong={(track: Track) => dispatch({ type: actions.PLAY, track })}
             tracks={tracks}
           />
-        </div>
-        <div className="column column-50">
+        </span>
+        <span className="column column-50">
           {state.play && state.track && (
             <>
               <h1>{state.track.id}</h1>
@@ -59,9 +59,9 @@ const App = () => {
               </p>
             </>
           )}
-        </div>
-      </div>
-    </div>
+        </span>
+      </span>
+    </span>
   );
 };
 

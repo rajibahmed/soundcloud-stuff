@@ -1,9 +1,9 @@
 import React from "react";
 
 export default () => (
-  <div className="row">
-    <div className="column">
-      <div className="Header">
+  <span className="row">
+    <span className="column">
+      <span className="Header">
         <h1>The App</h1>
         <h4>
           built with{" "}
@@ -11,7 +11,7 @@ export default () => (
             ♥️
           </span>
         </h4>
-      </div>
-    </div>
-  </div>
+      </span>
+    </span>
+  </span>
 );

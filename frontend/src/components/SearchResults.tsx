@@ -7,7 +7,7 @@ const EmptyTracks = () => {
 
 export default ({ tracks, playSong }: any) => {
   return tracks ? (
-    <ul>
+    <ul className="SearchResults">
       {tracks.map((track: any, idx: number) => (
         <SearchItem key={idx} track={track} playSong={playSong} />
       ))}

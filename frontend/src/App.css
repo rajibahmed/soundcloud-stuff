@@ -2,3 +2,30 @@
   padding: 2em 0;
   text-align: center;
 }
+
+.SearchResults {
+  padding-left: 5pt;
+  text-decoration: none;
+  list-style: none;
+}
+
+.SearchItem {
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+}
+
+.SearchItem div {
+  flex-grow: 1;
+}
+.SearchItem .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 40%;
+  font-weight: bold;
+}
+.SearchItem .duration {
+  font-style: italic;
+}
