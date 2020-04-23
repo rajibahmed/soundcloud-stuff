@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Track } from "../typings/App";
+import { CLIENT_RENEG_WINDOW } from "tls";
 
 function millisToMinutesAndSeconds(millis: number) {
   const minutes = Math.floor(millis / 60000);
@@ -9,11 +10,18 @@ function millisToMinutesAndSeconds(millis: number) {
 }
 
 type SearchItemProps = {
+  playing: boolean;
   track: Track;
   playSong: Function;
+  playingTrack?: number;
 };
 
-const SearchItem: React.FC<SearchItemProps> = ({ track, playSong }) => {
+const SearchItem: React.FC<SearchItemProps> = ({
+  playing,
+  track,
+  playSong,
+  playingTrack,
+}) => {
   return (
     <li key={track.id} className="SearchItem">
       <div className="divider Avatar">
@@ -28,12 +36,25 @@ const SearchItem: React.FC<SearchItemProps> = ({ track, playSong }) => {
         <span className="artist">{track.user.username}</span>
       </div>
       <div className="divider playButton">
-        <button
-          className="button button-outline"
-          onClick={() => playSong(track)}
-        >
-          Play
-        </button>
+        {playing && track.id === playingTrack ? (
+          <button
+            className="button button-outline"
+            onClick={() => {
+              console.log(1);
+            }}
+          >
+            Pause
+          </button>
+        ) : (
+          <button
+            className="button button-outline"
+            onClick={() => {
+              playSong(track);
+            }}
+          >
+            Play
+          </button>
+        )}
       </div>
     </li>
   );
