@@ -57,6 +57,7 @@ declare global {
   interface Window {
     SC: {
       get: (path: string, options?: {}) => Promise<Array<Track>>;
+      stream: (trackUri: string) => Promise<any>;
     };
   }
 }
