@@ -1,10 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Hi this is -
+# SoundCloud Audio Player
 
-## SoundCloud Audio Player
-
-#### Booting up the service
+### Booting up the service
 
 install dependencies:
 
@@ -13,3 +11,11 @@ install dependencies:
 start the app:
 
 `yarn start`
+
+test the app
+
+`yarn test`
+
+## Background
+
+This is a demo project for interview process at SoundTrap.
