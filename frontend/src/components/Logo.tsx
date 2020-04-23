@@ -1,17 +1,17 @@
 import React from "react";
 
 export default () => (
-  <span className="row">
-    <span className="column">
-      <span className="Header">
-        <h1>The App</h1>
+  <div className="row">
+    <div className="column">
+      <div className="Header">
+        <h2>The App</h2>
         <h4>
           built with{" "}
-          <span role="img" aria-label="love" style={{ color: "red" }}>
+          <span role="img" aria-label="love" style={{ color: "#9b4dca" }}>
             ♥️
           </span>
         </h4>
-      </span>
-    </span>
-  </span>
+      </div>
+    </div>
+  </div>
 );

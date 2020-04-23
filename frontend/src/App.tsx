@@ -42,18 +42,16 @@ const App = () => {
   }, [query]);
 
   return (
-    <span className="container">
+    <div className="container Body">
       <Logo />
-      <span className="row">
-        <span className="column column-50">
-          <SearchBar setQuery={setQuery} />
+      <SearchBar setQuery={setQuery} />
+      <div className="row">
+        <div className="column column-50">
           <SearchResults playSong={onPlaySong} tracks={tracks} />
-        </span>
-        <span className="column column-50">
-          {state.play && state.track && <Player track={state.track} />}
-        </span>
-      </span>
-    </span>
+        </div>
+        {state.play && state.track && <Player track={state.track} />}
+      </div>
+    </div>
   );
 };
 
@@ -61,7 +59,6 @@ declare global {
   interface Window {
     SC: {
       get: (path: string, options?: {}) => Promise<Array<Track>>;
-      oEmbed: (url: string, options?: {}) => Promise<any>;
     };
   }
 }

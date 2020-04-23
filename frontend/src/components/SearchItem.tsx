@@ -10,12 +10,15 @@ function millisToMinutesAndSeconds(millis: number) {
 export default ({ track, playSong }: any) => {
   return (
     <li key={track.id} className="SearchItem">
-      <div className="title">{track.title}</div>
-      <div className="artist">{track.user.username}</div>
-      <div className="duration">
-        {millisToMinutesAndSeconds(track.duration)}
+      <div className="divider TrackInfo">
+        <span className="title">{track.title}</span>
+        <span className="duration">
+          {millisToMinutesAndSeconds(track.duration)}
+        </span>
+        <span className="info-divider">•</span>
+        <span className="artist">{track.user.username}</span>
       </div>
-      <div className="playButton">
+      <div className="divider playButton">
         <button
           className="button button-outline"
           onClick={() => playSong(track)}
