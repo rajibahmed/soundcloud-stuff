@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer, useCallback } from "react";
 import { Track } from "./typings/App";
 import Logo from "./components/Logo";
 import SearchBar from "./components/SearchBar";
 import SearchResults from "./components/SearchResults";
+import Player from "./components/Player";
 import actions from "./actions";
 
 import "./App.css";
@@ -31,6 +32,10 @@ const App = () => {
   const [query, setQuery] = useState<string | undefined>();
   const [tracks, setTracks] = useState<Array<Track> | null>(null);
   const [state, dispatch] = useReducer(playerReducer, playerState);
+  const onPlaySong = useCallback(
+    (track: Track) => dispatch({ type: actions.PLAY, track }),
+    []
+  );
 
   useEffect(() => {
     query && window.SC.get("/tracks", { q: query }).then(setTracks);
@@ -42,23 +47,10 @@ const App = () => {
       <span className="row">
         <span className="column column-50">
           <SearchBar setQuery={setQuery} />
-          <SearchResults
-            playSong={(track: Track) => dispatch({ type: actions.PLAY, track })}
-            tracks={tracks}
-          />
+          <SearchResults playSong={onPlaySong} tracks={tracks} />
         </span>
         <span className="column column-50">
-          {state.play && state.track && (
-            <>
-              <h1>{state.track.id}</h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti, porro enim nemo corporis eum quisquam quos repellat
-                adipisci ut? Iure harum nostrum tempore minus corrupti similique
-                beatae, minima provident nobis?
-              </p>
-            </>
-          )}
+          {state.play && state.track && <Player track={state.track} />}
         </span>
       </span>
     </span>
@@ -69,6 +61,7 @@ declare global {
   interface Window {
     SC: {
       get: (path: string, options?: {}) => Promise<Array<Track>>;
+      oEmbed: (url: string, options?: {}) => Promise<any>;
     };
   }
 }

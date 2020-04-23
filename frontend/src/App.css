@@ -1,6 +1,31 @@
+.Body {
+  max-width: none;
+  padding: 0 3rem;
+}
+
 .Header {
-  padding: 2em 0;
+  padding-top: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
+  border-bottom: 1px solid #f4f5f6;
+}
+
+.Header h2 {
+  margin-bottom: 0;
+}
+
+.SearchBarWrap form {
+  margin-bottom: 0;
+}
+
+.SearchBar {
+  border-radius: 0 !important;
+  border-color: #e4e5e6 !important;
+  color: #545556 !important;
+}
+
+.SearchBar::placeholder {
+  color: #a4a5a6;
 }
 
 .SearchResults {
@@ -10,22 +35,41 @@
 }
 
 .SearchItem {
-  padding: 10px 5px;
   display: flex;
+  padding: 0.5rem 0;
   flex-direction: row;
-  align-items: center;
-  justify-content: right;
+  align-items: top;
 }
 
-.SearchItem div {
+.SearchItem .divider {
   flex-grow: 1;
 }
-.SearchItem .title {
+
+.SearchItem .TrackInfo {
+  width: 100%;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding-right: 0.5rem;
+}
+
+.SearchItem .playButton .button {
+  margin-bottom: 0;
+}
+
+.SearchItem .TrackInfo .title {
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 40%;
-  font-weight: bold;
+  font-weight: 600;
+  padding: 0.25rem 0 0.5rem 0;
 }
-.SearchItem .duration {
+
+.SearchItem .TrackInfo .info-divider {
+  font-weight: 600;
+  color: #9b4dca;
+  padding: 0 0.5rem;
+}
+
+.SearchItem .TrackInfo .duration {
   font-style: italic;
 }
