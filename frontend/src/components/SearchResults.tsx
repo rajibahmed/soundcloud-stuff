@@ -14,11 +14,13 @@ export default ({
   playSong: Function;
 }) => {
   return tracks ? (
-    <ul className="SearchResults">
-      {tracks.map((track: any, idx: number) => (
-        <SearchItem key={idx} track={track} playSong={playSong} />
-      ))}
-    </ul>
+    <div className="column column-50">
+      <ul className="SearchResults">
+        {tracks.map((track: any, idx: number) => (
+          <SearchItem key={idx} track={track} playSong={playSong} />
+        ))}
+      </ul>
+    </div>
   ) : (
     <EmptyTracks />
   );

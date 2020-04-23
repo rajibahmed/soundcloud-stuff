@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link changes the class when hovered 1`] = `
+<DocumentFragment>
+  <div
+    class="SearchBarWrap"
+  >
+    <form>
+      <input
+        class="SearchBar"
+        name="song"
+        placeholder="What is your favorite music?"
+        type="text"
+      />
+    </form>
+  </div>
+</DocumentFragment>
+`;

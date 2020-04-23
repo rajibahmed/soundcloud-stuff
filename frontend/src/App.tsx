@@ -46,9 +46,7 @@ const App = () => {
       <Logo />
       <SearchBar setQuery={setQuery} />
       <div className="row">
-        <div className="column column-50">
-          <SearchResults playSong={onPlaySong} tracks={tracks} />
-        </div>
+        <SearchResults playSong={onPlaySong} tracks={tracks} />
         {state.play && state.track && <Player track={state.track} />}
       </div>
     </div>
