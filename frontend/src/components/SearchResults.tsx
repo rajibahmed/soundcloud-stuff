@@ -6,17 +6,16 @@ const EmptyTracks = () => {
   return <h4>No tracks found</h4>;
 };
 
-export default ({
-  tracks,
-  playSong,
-}: {
+type SearchResultsProps = {
   tracks: Track[] | null;
   playSong: Function;
-}) => {
+};
+
+const SearchResults: React.FC<SearchResultsProps> = ({ tracks, playSong }) => {
   return tracks ? (
     <div className="column column-50">
       <ul className="SearchResults">
-        {tracks.map((track: any, idx: number) => (
+        {tracks.map((track: Track, idx: number) => (
           <SearchItem key={idx} track={track} playSong={playSong} />
         ))}
       </ul>
@@ -25,3 +24,5 @@ export default ({
     <EmptyTracks />
   );
 };
+
+export default SearchResults;

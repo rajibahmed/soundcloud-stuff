@@ -16,6 +16,6 @@ test the app
 
 `yarn test`
 
-## Background
+#### Background
 
 This is a demo project for interview process at SoundTrap.

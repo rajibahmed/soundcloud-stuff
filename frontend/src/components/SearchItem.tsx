@@ -1,4 +1,5 @@
 import React from "react";
+import { Track } from "../typings/App";
 
 function millisToMinutesAndSeconds(millis: number) {
   const minutes = Math.floor(millis / 60000);
@@ -7,9 +8,17 @@ function millisToMinutesAndSeconds(millis: number) {
   return minutes + ":" + (Number(seconds) < 10 ? "0" + seconds : seconds);
 }
 
-export default ({ track, playSong }: any) => {
+type SearchItemProps = {
+  track: Track;
+  playSong: Function;
+};
+
+const SearchItem: React.FC<SearchItemProps> = ({ track, playSong }) => {
   return (
     <li key={track.id} className="SearchItem">
+      <div className="divider Avatar">
+        <img src={track.user.avatar_url} alt="" />
+      </div>
       <div className="divider TrackInfo">
         <span className="title">{track.title}</span>
         <span className="duration">
@@ -29,3 +38,5 @@ export default ({ track, playSong }: any) => {
     </li>
   );
 };
+
+export default SearchItem;

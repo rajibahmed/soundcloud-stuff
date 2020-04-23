@@ -1,10 +1,16 @@
 import React from "react";
+import { Track } from "../typings/App";
 
-export default ({ track }: any) => {
+type PlayerProps = {
+  track: Track;
+};
+
+const Player: React.FC<PlayerProps> = ({ track }) => {
   return (
     <span className="column column-50">
       <h1>{track.id}</h1>
-      <img src={track.thumbnail_url} alt="Album cover" />
     </span>
   );
 };
+
+export default Player;

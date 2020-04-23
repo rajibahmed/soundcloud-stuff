@@ -1,6 +1,10 @@
 import React from "react";
 
-export default ({ setQuery }: { setQuery: Function }) => (
+type SearchBarProps = {
+  setQuery: Function;
+};
+
+const SearchBar: React.FC<SearchBarProps> = ({ setQuery }) => (
   <div className="SearchBarWrap">
     <form>
       <input
@@ -13,3 +17,5 @@ export default ({ setQuery }: { setQuery: Function }) => (
     </form>
   </div>
 );
+
+export default SearchBar;
