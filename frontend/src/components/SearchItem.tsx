@@ -9,7 +9,6 @@ function millisToMinutesAndSeconds(millis: number) {
 }
 
 type SearchItemProps = {
-  playing: boolean;
   track: Track;
   playSong: Function;
   pauseSong: Function;
@@ -17,7 +16,6 @@ type SearchItemProps = {
 };
 
 const SearchItem: React.FC<SearchItemProps> = ({
-  playing,
   track,
   playSong,
   pauseSong,
@@ -37,7 +35,7 @@ const SearchItem: React.FC<SearchItemProps> = ({
         <span className="artist">{track.user.username}</span>
       </div>
       <div className="divider playButton">
-        {playing && track.id === playingTrack ? (
+        {track.id === playingTrack ? (
           <button className="button button-outline" onClick={() => pauseSong()}>
             Pause
           </button>

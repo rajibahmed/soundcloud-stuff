@@ -10,14 +10,12 @@ type SearchResultsProps = {
   tracks: Track[] | null;
   playSong: Function;
   pauseSong: Function;
-  playing: boolean;
   payingTrack?: number;
 };
 
 const SearchResults: React.FC<SearchResultsProps> = ({
   tracks,
   playSong,
-  playing,
   payingTrack,
   pauseSong,
 }) => {
@@ -28,7 +26,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({
           <SearchItem
             key={idx}
             track={track}
-            playing={playing}
             playSong={playSong}
             pauseSong={pauseSong}
             playingTrack={payingTrack}

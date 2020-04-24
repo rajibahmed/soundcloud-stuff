@@ -64,7 +64,6 @@ const App = () => {
       <SearchBar setQuery={setQuery} />
       <div className="row">
         <SearchResults
-          playing={state.play}
           playSong={onPlaySong}
           pauseSong={onPauseSong}
           tracks={tracks}
