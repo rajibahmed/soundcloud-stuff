@@ -2,10 +2,6 @@ import React from "react";
 import SearchItem from "./SearchItem";
 import { Track } from "../typings/App";
 
-const EmptyTracks = () => {
-  return <h4>No tracks found</h4>;
-};
-
 type SearchResultsProps = {
   tracks: Track[] | null;
   playSong: Function;
@@ -35,9 +31,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         </ul>
       </div>
     </div>
-  ) : (
-    <EmptyTracks />
-  );
+  ) : null;
 };
 
 export default SearchResults;
