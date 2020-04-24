@@ -1,8 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # SoundCloud Audio Player
 
-### Booting up the service
+This is a demo project for interview process at SoundTrap.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Booting up the service
 
 install dependencies:
 
@@ -16,11 +17,9 @@ test the app
 
 `yarn test`
 
-#### Background
-
-This is a demo project for interview process at SoundTrap.
-
 ### Maybe you can search for -
 
 - Rajib greetings
 - Rajib why
+
+Thank you for your time 🐹🐰🐶
