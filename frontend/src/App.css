@@ -53,8 +53,6 @@
   padding-right: 0.5rem;
 }
 
-.SearchItem .Avatar {
-}
 .SearchItem .Avatar img {
   border-color: antiquewhite;
   border-style: solid;
@@ -95,7 +93,7 @@
   border: 4px solid #9b4dca;
   opacity: 1;
   border-radius: 50%;
-  animation: Loding_ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  animation: Loding_ripple 1s cubic-bezier(0, 1, 0.8, 1) infinite;
 }
 .Loding_ripple div:nth-child(2) {
   animation-delay: -0.5s;

@@ -26,7 +26,7 @@ function playerReducer(
   switch (type) {
     case actions.PLAY:
       return { play: true, track };
-    case actions.STOP:
+    case actions.PAUSE:
       return { play: false };
     default:
       throw new Error();
@@ -43,6 +43,7 @@ const App = () => {
   );
   const playerHandle = useRef(null) as any;
   const onPauseSong = useCallback(() => {
+    dispatch({ type: actions.PAUSE });
     playerHandle.current.pause();
   }, [playerHandle]);
 
