@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchItem Default view 1`] = `
+<DocumentFragment>
+  <li
+    class="SearchItem"
+  >
+    <div
+      class="divider Avatar"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </div>
+    <div
+      class="divider TrackInfo"
+    >
+      <span
+        class="title"
+      >
+        nice song
+      </span>
+      <span
+        class="duration"
+      >
+        NaN:NaN
+      </span>
+      <span
+        class="info-divider"
+      >
+        •
+      </span>
+      <span
+        class="artist"
+      >
+        rajib
+      </span>
+    </div>
+    <div
+      class="divider playButton"
+    >
+      <button
+        class="button button-outline"
+      >
+        Play
+      </button>
+    </div>
+  </li>
+</DocumentFragment>
+`;
