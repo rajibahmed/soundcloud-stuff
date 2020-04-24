@@ -9,6 +9,7 @@ const EmptyTracks = () => {
 type SearchResultsProps = {
   tracks: Track[] | null;
   playSong: Function;
+  pauseSong: Function;
   playing: boolean;
   payingTrack?: number;
 };
@@ -18,6 +19,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   playSong,
   playing,
   payingTrack,
+  pauseSong,
 }) => {
   return tracks ? (
     <div className="column column-50">
@@ -28,6 +30,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
             track={track}
             playing={playing}
             playSong={playSong}
+            pauseSong={pauseSong}
             playingTrack={payingTrack}
           />
         ))}

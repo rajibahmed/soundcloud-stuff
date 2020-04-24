@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { Track } from "../typings/App";
-import { CLIENT_RENEG_WINDOW } from "tls";
 
 function millisToMinutesAndSeconds(millis: number) {
   const minutes = Math.floor(millis / 60000);
@@ -13,6 +12,7 @@ type SearchItemProps = {
   playing: boolean;
   track: Track;
   playSong: Function;
+  pauseSong: Function;
   playingTrack?: number;
 };
 
@@ -20,6 +20,7 @@ const SearchItem: React.FC<SearchItemProps> = ({
   playing,
   track,
   playSong,
+  pauseSong,
   playingTrack,
 }) => {
   return (
@@ -37,12 +38,7 @@ const SearchItem: React.FC<SearchItemProps> = ({
       </div>
       <div className="divider playButton">
         {playing && track.id === playingTrack ? (
-          <button
-            className="button button-outline"
-            onClick={() => {
-              console.log(1);
-            }}
-          >
+          <button className="button button-outline" onClick={() => pauseSong()}>
             Pause
           </button>
         ) : (

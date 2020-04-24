@@ -1,9 +1,14 @@
-import React, { useState, useEffect, useReducer, useCallback } from "react";
+import React, {
+  useState,
+  useEffect,
+  useReducer,
+  useCallback,
+  useRef,
+} from "react";
 import { Track } from "./typings/App";
 import Logo from "./components/Logo";
 import SearchBar from "./components/SearchBar";
 import SearchResults from "./components/SearchResults";
-import Player from "./components/Player";
 import actions from "./actions";
 
 import "./App.css";
@@ -36,10 +41,22 @@ const App = () => {
     (track: Track) => dispatch({ type: actions.PLAY, track }),
     []
   );
+  const playerHandle = useRef(null) as any;
+  const onPauseSong = useCallback(() => {
+    playerHandle.current.pause();
+  }, [playerHandle]);
 
   useEffect(() => {
     query && window.SC.get("/tracks", { q: query }).then(setTracks);
   }, [query]);
+
+  useEffect(() => {
+    state.track &&
+      window.SC.stream(`/tracks/${state.track.id}`).then(function (player) {
+        playerHandle.current = player;
+        player.play();
+      });
+  }, [playerHandle, state.track]);
 
   return (
     <div className="container Body">
@@ -49,10 +66,10 @@ const App = () => {
         <SearchResults
           playing={state.play}
           playSong={onPlaySong}
+          pauseSong={onPauseSong}
           tracks={tracks}
           payingTrack={state?.track?.id}
         />
-        {state.play && state.track && <Player track={state.track} />}
       </div>
     </div>
   );
