@@ -1,7 +1,11 @@
 import React from "react";
 import { Track } from "../typings/App";
 
-function millisToMinutesAndSeconds(millis: number) {
+export function millisToMinutesAndSeconds(millis: number) {
+  if (millis < 0) {
+    return "0:00";
+  }
+
   const minutes = Math.floor(millis / 60000);
   const seconds = ((millis % 60000) / 1000).toFixed(0);
 
