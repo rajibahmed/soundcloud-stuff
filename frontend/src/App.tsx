@@ -62,14 +62,12 @@ const App = () => {
     <div className="container Body">
       <Logo />
       <SearchBar setQuery={setQuery} />
-      <div className="row">
-        <SearchResults
-          playSong={onPlaySong}
-          pauseSong={onPauseSong}
-          tracks={tracks}
-          payingTrack={state?.track?.id}
-        />
-      </div>
+      <SearchResults
+        playSong={onPlaySong}
+        pauseSong={onPauseSong}
+        tracks={tracks}
+        payingTrack={state?.track?.id}
+      />
     </div>
   );
 };

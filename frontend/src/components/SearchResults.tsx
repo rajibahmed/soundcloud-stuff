@@ -20,18 +20,20 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   pauseSong,
 }) => {
   return tracks ? (
-    <div className="column column-50">
-      <ul className="SearchResults">
-        {tracks.map((track: Track, idx: number) => (
-          <SearchItem
-            key={idx}
-            track={track}
-            playSong={playSong}
-            pauseSong={pauseSong}
-            playingTrack={payingTrack}
-          />
-        ))}
-      </ul>
+    <div className="row">
+      <div className="column">
+        <ul className="SearchResults">
+          {tracks.map((track: Track) => (
+            <SearchItem
+              key={track.id}
+              track={track}
+              playSong={playSong}
+              pauseSong={pauseSong}
+              playingTrack={payingTrack}
+            />
+          ))}
+        </ul>
+      </div>
     </div>
   ) : (
     <EmptyTracks />
